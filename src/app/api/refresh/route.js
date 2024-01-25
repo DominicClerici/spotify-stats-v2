@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 
-export async function POST(req) {
+export const POST = async (req) => {
   const data = await req.json()
   if (!data) {
     console.log("cant parse")
@@ -8,7 +8,6 @@ export async function POST(req) {
       status: 400,
     })
   }
-  console.log(data)
   const code = data.code
   const res = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
@@ -20,12 +19,10 @@ export async function POST(req) {
   })
   const json = await res.json()
   if (json.error) {
-    console.log("error")
-    return new NextResponse(JSON.stringify({ message: "invalid code" }), {
+    return new NextResponse(JSON.stringify({ error: "invalid code" }), {
       status: 400,
     })
   } else {
-    console.log("success")
     return new NextResponse(JSON.stringify(json), {
       status: 200,
     })
