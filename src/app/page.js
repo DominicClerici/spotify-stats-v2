@@ -1,3 +1,6 @@
+import { cookies } from "next/headers"
+import Link from "next/link"
+
 export default function Home() {
   const className = {
     header: "text-2xl mb-4",
@@ -5,17 +8,25 @@ export default function Home() {
     panel: "p-8 rounded-lg bg-main/10",
   }
 
+  const scope = "user-read-private user-read-email"
+
   return (
     <main>
       <section className="mt-24 max-w-screen-lg min-h-[70vh] flex flex-col items-center justify-center mx-auto">
         <h1 className="text-6xl font-bold">Spotify stats</h1>
         <h2 className="text-3xl my-8">See your spotify listening statistics</h2>
-        <a
-          href={`https://accounts.spotify.com/authorize?client_id=${process.env.CLIENT_ID}&response_type=code&redirect_uri=http://localhost:3000/callback&scope=user-read-currently-playing`}
-          className="text-lg bg-main my-24 px-3"
-        >
-          Log in with Spotify
-        </a>
+        {cookies().get("refresh_token") ? (
+          <Link href="/dashboard" className="text-lg bg-main/10 my-24 px-3">
+            See your stats
+          </Link>
+        ) : (
+          <a
+            href={`https://accounts.spotify.com/authorize?client_id=${process.env.CLIENT_ID}&response_type=code&redirect_uri=http://localhost:3000/callback&scope=${scope}`}
+            className="text-lg bg-main/10 my-24 px-3"
+          >
+            Log in with Spotify
+          </a>
+        )}
       </section>
       <section className="grid grid-cols-3 gap-8 max-w-[1200px] mx-auto">
         <div className={className.panel}>

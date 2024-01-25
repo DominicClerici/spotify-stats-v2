@@ -1,5 +1,7 @@
-import { cookies } from "next/headers"
 import { NextResponse } from "next/server"
+import { cookies } from "next/headers"
+
+const url = "http://localhost:3000/callback"
 
 export const POST = async (req) => {
   const data = await req.json()
@@ -8,14 +10,14 @@ export const POST = async (req) => {
       status: 400,
     })
   }
-  const token = data.token.value
+  const code = data.code
   const res = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
       Authorization: `Basic ${process.env.ENCODED}`,
     },
-    body: `grant_type=refresh_token&refresh_token=${token}`,
+    body: `grant_type=authorization_code&redirect_uri=${url}&code=${code}`,
   })
   let json
   try {
@@ -30,13 +32,18 @@ export const POST = async (req) => {
     )
   }
   if (json.error) {
-    console.log(json)
     return new NextResponse(JSON.stringify({ error: 41 }), {
       status: 400,
     })
   } else {
     try {
-      console.log(json)
+      cookies().set(
+        "refresh_token",
+        json.refresh_token,
+        cookies().set("refresh_token", json.refresh_token, {
+          maxAge: 60 * 60 * 24 * 365,
+        })
+      )
       cookies().set("access_token", json.access_token, {
         maxAge: json.expires_in,
       })
@@ -49,7 +56,7 @@ export const POST = async (req) => {
         }
       )
     }
-    if (cookies().get("access_token") && cookies().get("refresh_token")) {
+    if (cookies().get("refresh_token") && cookies().get("access_token")) {
       return new NextResponse(JSON.stringify({ message: "success" }), {
         status: 200,
       })
