@@ -1,10 +1,10 @@
 import Image from "next/image"
 import React from "react"
 
-const ProfilePreview = async ({ accessCode }) => {
+const ProfilePreview = async ({ code }) => {
   const res = await fetch("https://api.spotify.com/v1/me", {
     headers: {
-      Authorization: `Bearer ${accessCode}`,
+      Authorization: `Bearer ${code}`,
     },
   })
   let data
@@ -12,8 +12,10 @@ const ProfilePreview = async ({ accessCode }) => {
     data = await res.json()
   }
   return (
-    <div className="flex items-center gap-4 px-12 fade-in-0 animate-in duration-1000">
+    <div className="flex items-center gap-4 px-12 animate-fade-in">
       <Image
+        priority={true}
+        alt={`Spotify profile picture for ${data.display_name}`}
         src={data.images[1].url}
         height={150}
         width={150}
@@ -23,8 +25,7 @@ const ProfilePreview = async ({ accessCode }) => {
         <h2 className="font-bold text-5xl mb-2">{data.display_name}</h2>
         <span className="flex items-center gap-8">
           <h3 className="text-xl">
-            <span className="text-highlight">{data.followers.total}</span>{" "}
-            followers
+            <span className="text-highlight/80">{data.followers.total}</span> followers
           </h3>
           <a
             className="text-xl hover:text-highlight transition-colors"
