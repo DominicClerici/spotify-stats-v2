@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation"
 import authorize from "../fetchers/authorize"
 
 const Client = ({ searchParams }) => {
-  const [errorCode, setErrorCode] = useState(0)
+  const [errorCode, setErrorCode] = useState(41)
   const router = useRouter()
 
   useEffect(() => {

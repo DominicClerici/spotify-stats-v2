@@ -14,6 +14,9 @@ const CurrentlyPlaying = async ({ code }) => {
     data = await res.json()
   }
   if (data && data.is_playing) {
+    if (data.currently_playing_type == "episode") {
+      return <></>
+    }
     const currentTrackData = {
       title: data.item.name,
       artist: data.item.artists.map((artist) => artist.name).join(", "),
