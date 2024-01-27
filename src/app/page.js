@@ -22,7 +22,7 @@ export default function Home() {
         ) : (
           <a
             href={`https://accounts.spotify.com/authorize?client_id=${process.env.CLIENT_ID}&response_type=code&redirect_uri=http://localhost:3000/callback&scope=${scope}`}
-            className="text-lg bg-main/10 my-24 px-3"
+            className="rounded py-2 border-highlight border-2 font-semibold text-highlight text-xl bg-main/10 px-4 my-24 hover:bg-main/20 transition-colors"
           >
             Log in with Spotify
           </a>

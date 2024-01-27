@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState } from "react"
 import ListDisplay from "./ListDisplay"
+import Link from "next/link"
 
 const SAMPLE_TRACK_OBJECT = {
   title: "The Less I Know The Better",
@@ -69,8 +70,10 @@ const ListPreview = ({ code, type }) => {
   }
 
   return (
-    <section className="my-16">
-      <h1 className="text-3xl font-bold mt-4 ml-2">Top {type == "tracks" ? "tracks" : "artists"}</h1>
+    <section className="my-16 animate-fade-in">
+      <Link href={type == "tracks" ? "http://localhost:3000/tracks" : "http://localhost:3000/artists"}>
+        <h1 className="text-3xl font-bold mt-4 ml-2">Top {type == "tracks" ? "tracks" : "artists"}</h1>
+      </Link>
       <span className="flex items-center gap-8 my-4 ml-2">
         <button
           onClick={() => {

@@ -18,51 +18,68 @@ const Client = ({ searchParams }) => {
       authorize(code)
         .then(() => {
           router.push("/dashboard")
+          router.refresh()
         })
         .catch((error) => {
           setErrorCode(error)
         })
     }
   }, [])
+  let innerJsx
   if (errorCode !== 0) {
     switch (errorCode) {
       case 1:
-        return (
-          <div>
-            <h1 className="text-3xl my-24">Error: {searchParams.error}</h1>
+        innerJsx = (
+          <div className="flex mt-36 items-center justify-center">
+            <h1 className="text-2xl">Error: {searchParams.error}</h1>
           </div>
         )
+        break
+
       case 40:
-        return (
-          <div>
-            <h1 className="text-3xl my-24">Bad authorization request</h1>
+        innerJsx = (
+          <div className="flex mt-36 items-center justify-center">
+            <h1 className="text-2xl">Bad authorization request</h1>
           </div>
         )
+        break
+
       case 41:
-        return (
-          <div>
-            <h1 className="text-3xl my-24">Bad authorization code</h1>
+        innerJsx = (
+          <div className="flex mt-36 items-center justify-center">
+            <h1 className="text-2xl">Bad authorization code</h1>
           </div>
         )
+        break
+
       case 42:
-        return (
-          <div>
-            <h1 className="text-3xl my-24">Error setting cookies</h1>
+        innerJsx = (
+          <div className="flex mt-36 items-center justify-center">
+            <h1 className="text-2xl">Error setting cookies</h1>
           </div>
         )
+        break
       default:
-        return (
-          <div>
-            <h1 className="text-3xl my-24">Error: {errorCode}</h1>
+        innerJsx = (
+          <div className="flex mt-36 items-center justify-center">
+            <h1 className="text-2xl">Error: {errorCode}</h1>
           </div>
         )
+        break
     }
-  }
-  return (
-    <section className="min-h-screen max-w-screen-lg">
+  } else {
+    innerJsx = (
       <div className="flex mt-36 items-center justify-center">
         <h1 className="text-2xl">Logging in...</h1>
       </div>
+    )
+  }
+  return (
+    <section className="min-h-screen max-w-screen-lg animate-delayed-fade-in">
+      {innerJsx}
+      {/* <div className="flex mt-36 items-center justify-center">
+        <h1 className="text-2xl">Logging in...</h1>
+      </div> */}
     </section>
   )
 }
