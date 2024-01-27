@@ -8,7 +8,7 @@ export default function Home() {
     panel: "p-8 rounded-lg bg-main/10",
   }
 
-  const scope = "user-read-private user-read-email user-top-read"
+  const scope = "user-read-private user-read-email user-top-read user-read-playback-state user-read-recently-played"
 
   return (
     <main>
@@ -16,12 +16,15 @@ export default function Home() {
         <h1 className="text-6xl font-bold">Spotify stats</h1>
         <h2 className="text-3xl my-8">See your spotify listening statistics</h2>
         {cookies().get("refresh_token") ? (
-          <Link href="/dashboard" className="text-lg bg-main/10 my-24 px-3">
+          <Link
+            href="/dashboard"
+            className="rounded py-2 border-highlight border-2 font-semibold text-highlight text-xl bg-main/10 px-4 my-24 hover:bg-main/20 transition-colors"
+          >
             See your stats
           </Link>
         ) : (
           <a
-            href={`https://accounts.spotify.com/authorize?client_id=${process.env.CLIENT_ID}&response_type=code&redirect_uri=http://localhost:3000/callback&scope=${scope}`}
+            href={`https://accounts.spotify.com/authorize?client_id=${process.env.CLIENT_ID}&response_type=code&redirect_uri=http://localhost:3000/callback&scope=${scope}&show_dialog=true`}
             className="rounded py-2 border-highlight border-2 font-semibold text-highlight text-xl bg-main/10 px-4 my-24 hover:bg-main/20 transition-colors"
           >
             Log in with Spotify

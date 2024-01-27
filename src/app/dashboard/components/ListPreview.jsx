@@ -46,7 +46,7 @@ const ListPreview = ({ code, type }) => {
             } else {
               return {
                 title: item.name,
-                artist: item.artists[0].name,
+                artist: item.artists.map((artist) => artist.name).join(", "),
                 icon: item.album.images[1].url,
                 link: item.external_urls.spotify,
               }
@@ -70,7 +70,7 @@ const ListPreview = ({ code, type }) => {
   }
 
   return (
-    <section className="my-16 animate-fade-in">
+    <section className="my-20 animate-fade-in">
       <Link href={type == "tracks" ? "http://localhost:3000/tracks" : "http://localhost:3000/artists"}>
         <h1 className="text-3xl font-bold mt-4 ml-2">Top {type == "tracks" ? "tracks" : "artists"}</h1>
       </Link>

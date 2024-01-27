@@ -15,7 +15,7 @@ const page = async () => {
   }
 
   return (
-    <section className="max-w-screen-md min-h-screen mx-auto my-24">
+    <section className="max-w-screen-md min-h-screen mx-auto my-24 animate-fade-in">
       <Link href="/dashboard" className="flex items-center gap-1 group text-lg mb-8">
         <svg
           className="translate-y-[1px] group-hover:-translate-x-1 transition-transform h-6 w-6"
@@ -32,7 +32,7 @@ const page = async () => {
             d="M5 12h14M5 12l4-4m-4 4 4 4"
           />
         </svg>
-        Go back
+        Dashboard
       </Link>
       <h1 className="text-4xl font-semibold">Top artists</h1>
       <FullList code={accessToken.value} type="artists" />

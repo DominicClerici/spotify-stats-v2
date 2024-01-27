@@ -9,8 +9,9 @@ const ListDisplay = ({ items, type, externalUrl }) => {
       return (
         <div
           key={"skel_tracks_" + i}
-          className={`flex items-center gap-4 ${!(i == 4) && "border-b border-b-main/5"} py-2`}
+          className={`flex items-center gap-4 ${!(i == 4) && "border-b border-b-main/5"} py-2 mx-2`}
         >
+          <p className="w-6 -ml-10 text-main/70">{i + 1}.</p>
           <div className="w-16 h-16 rounded-lg bg-main/10"></div>
           <div>
             <div className="w-40 h-6 rounded-full bg-main/10 mb-2"></div>
@@ -26,6 +27,7 @@ const ListDisplay = ({ items, type, externalUrl }) => {
           key={"track_" + i}
           className={`flex items-center gap-4 ${!(i == items.length - 1) && "border-b border-b-main/5"} mx-2 py-2`}
         >
+          <p className="w-6 -ml-10 text-main/70">{i + 1}.</p>
           <div className="relative h-16 w-16 z-0">
             <Image
               src={item.icon}
@@ -39,7 +41,7 @@ const ListDisplay = ({ items, type, externalUrl }) => {
             {type == "tracks" ? (
               <>
                 <h3 className="font-semibold text-xl">{item.title}</h3>
-                <h4 className="text-lg">{item.artist}</h4>
+                <h4 className="text-lg text-main/70">{item.artist}</h4>
               </>
             ) : (
               <h3 className="font-semibold text-xl">{item.name}</h3>

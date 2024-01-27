@@ -34,8 +34,8 @@ const page = async () => {
         </svg>
         Dashboard
       </Link>
-      <h1 className="text-4xl font-semibold">Top tracks</h1>
-      <FullList code={accessToken.value} type="tracks" />
+      <h1 className="text-4xl font-semibold mb-8">Recently played</h1>
+      <FullList code={accessToken.value} />
     </main>
   )
 }

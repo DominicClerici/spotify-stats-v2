@@ -10,15 +10,12 @@ const RefreshToken = ({ code }) => {
     try {
       refresh(code)
         .then(() => {
-          console.log("success")
           router.refresh()
         })
         .catch((e) => {
-          console.log(e)
           router.push("/")
         })
     } catch (error) {
-      console.error("refresh: ", error)
       router.push("/")
     }
   }, [])

@@ -22,7 +22,6 @@ const TopGenres = ({ code }) => {
           }
         })
         .then((data) => {
-          console.log(data)
           data.items.forEach((item) => {
             item.genres.forEach((genre) => {
               if (genreCounts[genre] == null) {
@@ -84,7 +83,7 @@ const TopGenres = ({ code }) => {
   }
 
   return (
-    <section className="my-16">
+    <section className="my-20">
       <h1 className="text-3xl font-bold mt-4 ml-2">Top genres</h1>
       <span className="flex items-center gap-8 my-4 ml-2">
         <button
