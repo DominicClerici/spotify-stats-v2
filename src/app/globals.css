@@ -3,6 +3,26 @@
 @tailwind utilities;
 
 @layer utilities {
+  /* this is jank but i cant get the scale to work otherwise */
+  .glow-below {
+    filter: drop-shadow(0px 50px 100px #1efc1e);
+  }
+  .glow-below:hover {
+    filter: drop-shadow(0px 50px 100px #1efc1e) brightness(1.15);
+  }
+  .glow-left {
+    filter: drop-shadow(-200px -100px 100px #1efc1e);
+  }
+}
+
+/* change text selection color to #000000 */
+*::selection {
+  background: #244f26;
+  color: white;
+}
+*::-moz-selection {
+  background: #244f26;
+  color: white;
 }
 
 h1,

@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./pages/**/*.{js,jsx}", "./components/**/*.{js,jsx}", "./app/**/*.{js,jsx}", "./src/**/*.{js,jsx}"],
+  content: [
+    "./pages/**/*.{js,jsx}",
+    "./components/**/*.{js,jsx}",
+    "./app/**/*.{js,jsx}",
+    "./src/**/*.{js,jsx}",
+  ],
   theme: {
     extend: {
       animation: {
@@ -8,9 +13,10 @@ module.exports = {
         "delayed-fade-in": "fadeIn 0.5s ease-in 1.5s backwards",
       },
       colors: {
-        background: "#000000",
+        background: "#040609",
         main: "#ffffff",
-        highlight: "#00ff00",
+        highlight: "#1EFC1E",
+        darkHighlight: "#149911",
       },
       keyframes: {
         fadeIn: {
@@ -20,4 +26,4 @@ module.exports = {
       },
     },
   },
-}
+};
