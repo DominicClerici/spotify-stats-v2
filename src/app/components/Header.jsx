@@ -3,8 +3,10 @@ import Link from "next/link"
 import React from "react"
 import { Logout } from "./Logout"
 import Logo from "./Logo"
+import Login from "./Login"
 
-const scope = "user-read-private user-read-email user-top-read user-read-playback-state user-read-recently-played"
+const scope =
+  "user-read-private user-read-email user-top-read user-read-playback-state user-read-recently-played"
 
 const Header = () => {
   const accessToken = cookies().get("access_token")
@@ -39,19 +41,16 @@ const Header = () => {
     )
   } else {
     innerJsx = (
-      <a
-        href={`https://accounts.spotify.com/authorize?client_id=${process.env.CLIENT_ID}&response_type=code&redirect_uri=http://localhost:3000/callback&scope=${scope}`}
-        className="rounded transition-colors py-1 border-highlight border-2 font-semibold text-highlight text-lg bg-main/10 px-3 ml-auto hover:bg-main/20"
-      >
-        Log in with Spotify
-      </a>
+      <div className="ml-auto">
+        <Login small />
+      </div>
     )
   }
 
   return (
-    <header className="w-full bg-background/70 backdrop-blur-lg fixed z-10 top-0 left-0">
-      <div className="flex items-center py-2 px-12 max-w-screen-xl mx-auto">
-        <Link href="/" className="mr-8 p-2 group">
+    <header className="fixed left-0 top-0 z-30 w-full bg-background/70 backdrop-blur-lg">
+      <div className="mx-auto flex max-w-screen-xl items-center px-12 py-2">
+        <Link href="/" className="group mr-8 p-2">
           <Logo />
         </Link>
         {innerJsx}

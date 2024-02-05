@@ -7,8 +7,8 @@ const Footer = () => {
     column: "flex flex-col gap-3",
   }
   return (
-    <footer className="w-full bg-main/5 mt-12">
-      <div className="grid grid-cols-3 gap-12 max-w-screen-lg mx-auto py-24">
+    <footer className="w-full bg-main/5">
+      <div className="mx-auto grid max-w-screen-lg grid-cols-3 gap-12 py-24">
         <div>
           <h1>Logo here</h1>
           <h2>Made with love by Dominic Clerici</h2>

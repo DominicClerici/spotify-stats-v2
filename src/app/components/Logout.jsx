@@ -13,7 +13,10 @@ export const Logout = () => {
     })
   }
   return (
-    <button className="py-1 px-3  text-main rounded ml-auto hover:bg-main/10 transition-colors" onClick={logoutHandler}>
+    <button
+      className="ml-auto rounded  px-3 py-1 text-main transition-colors hover:bg-main/10"
+      onClick={logoutHandler}
+    >
       Logout
     </button>
   )

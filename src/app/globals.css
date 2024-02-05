@@ -2,7 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
+*::selection {
+  background: rgba(102, 226, 109, 0.3);
+  color: white;
+}
+*::-moz-selection {
+  background: rgba(102, 226, 109, 0.3);
+  color: white;
 }
 
 h1,

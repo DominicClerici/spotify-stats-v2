@@ -25,6 +25,10 @@ const FullList = async ({ code }) => {
       }
     })
   }
+  if (trackArray.length == 0) {
+    return <h3 className="text-xl text-main/60 font-semibold">No recently played tracks</h3>
+  }
+
   let innerJsx = trackArray.map((item, i) => {
     return (
       <div key={"track_" + i} className={`flex items-center gap-4 border-b border-b-main/10 mx-2 py-2`}>
