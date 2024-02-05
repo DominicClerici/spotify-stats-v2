@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      dropShadow:{
+        logo: "20px 20px 10px white",
+      },
       animation: {
         "fade-in": "fadeIn 0.5s ease-in",
         "delayed-fade-in": "fadeIn 0.5s ease-in 1.5s backwards",

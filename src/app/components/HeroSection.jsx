@@ -7,7 +7,7 @@ const HeroSection = () => {
   return (
     <section className="mx-auto mt-[25vh] grid min-h-[50vh] max-w-screen-lg grid-rows-2 px-4 md:grid-cols-2">
       <div className="glow-left order-2 md:order-1">
-        <h1 className="text-6xl font-bold">Spotify stats</h1>
+        <h1 className="text-6xl glow-right font-bold">Spotify stats</h1>
         <h2 className="mb-20 mt-3 text-3xl">
           See your spotify listening statistics
         </h2>
@@ -22,7 +22,7 @@ const HeroSection = () => {
           <Login />
         )}
       </div>
-      <div className="order-1 mx-auto md:order-2">
+      <div className="order-1 mx-auto md:order-2 relative">
         <Logo large={true} />
       </div>
     </section>
