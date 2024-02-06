@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation"
 import React from "react"
 
-const baseUrl = "https://www.spotifystats.dominicclerici.com/"
+const baseUrl = "https://spotifystats.dominicclerici.com/"
 
 export const Logout = () => {
   const router = useRouter()
