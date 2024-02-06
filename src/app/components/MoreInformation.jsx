@@ -104,7 +104,11 @@ const MoreInformation = () => {
             </strong>
             <p className={className.list}>
               Use{" "}
-              <a href="https://artists.spotify.com/home" target="_blank">
+              <a
+                className="text-blue-500 underline"
+                href="https://artists.spotify.com/home"
+                target="_blank"
+              >
                 Spotify for Artists
               </a>{" "}
               or other analytics tools to access detailed statistics.
@@ -118,6 +122,7 @@ const MoreInformation = () => {
               Stats for Spotify is accurate, with data sourced directly from
               Spotify, with the{" "}
               <a
+                className="text-blue-500 underline"
                 href="https://developer.spotify.com/documentation/web-api"
                 target="_blank"
               >

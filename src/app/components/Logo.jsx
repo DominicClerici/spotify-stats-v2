@@ -4,6 +4,7 @@ import React from "react"
 const Logo = ({ large }) => {
   return (
     // 75
+
     <svg
       className={`logoCont animate-fade-in ${large ? "h-[90px] w-[225px] lg:h-[120px] lg:w-[300px]" : "h-[30px] w-[75px]"}`}
       viewBox="0 0 150 60"

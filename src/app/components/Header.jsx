@@ -51,6 +51,7 @@ const Header = () => {
     <header className="fixed left-0 top-0 z-30 w-full bg-background/70 backdrop-blur-lg">
       <div className="mx-auto flex max-w-screen-xl items-center px-12 py-2">
         <Link href="/" className="group mr-8 p-2">
+          <span className="absolute opacity-0">home</span>
           <Logo />
         </Link>
         {innerJsx}
