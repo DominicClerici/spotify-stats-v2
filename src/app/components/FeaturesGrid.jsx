@@ -2,7 +2,7 @@ import React from "react"
 
 const FeaturesGrid = () => {
   return (
-    <section className="w-full animate-fade-in">
+    <section className="w-full">
       <div className="mx-auto grid max-w-[1000px] px-2 sm:px-4 md:px-8">
         <div className="relative grid grid-cols-1 gap-x-16 gap-y-8 md:grid-cols-2">
           <div className="flex items-center gap-4">

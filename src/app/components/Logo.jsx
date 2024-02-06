@@ -6,7 +6,7 @@ const Logo = ({ large }) => {
     // 75
 
     <svg
-      className={`logoCont animate-fade-in ${large ? "h-[90px] w-[225px] lg:h-[120px] lg:w-[300px]" : "h-[30px] w-[75px]"}`}
+      className={`logoCont ${large ? "h-[90px] w-[225px] lg:h-[120px] lg:w-[300px]" : "h-[30px] w-[75px]"}`}
       viewBox="0 0 150 60"
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
