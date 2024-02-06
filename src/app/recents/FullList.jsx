@@ -3,11 +3,14 @@ import React from "react"
 import timeAgo from "../timeAgo"
 
 const FullList = async ({ code }) => {
-  const res = await fetch("https://api.spotify.com/v1/me/player/recently-played?limit=50", {
-    headers: {
-      Authorization: `Bearer ${code}`,
+  const res = await fetch(
+    "https://api.spotify.com/v1/me/player/recently-played?limit=50",
+    {
+      headers: {
+        Authorization: `Bearer ${code}`,
+      },
     },
-  })
+  )
 
   let data
   let trackArray
@@ -26,30 +29,41 @@ const FullList = async ({ code }) => {
     })
   }
   if (trackArray.length == 0) {
-    return <h3 className="text-xl text-main/60 font-semibold">No recently played tracks</h3>
+    return (
+      <h3 className="text-xl font-semibold text-main/60">
+        No recently played tracks
+      </h3>
+    )
   }
 
   let innerJsx = trackArray.map((item, i) => {
     return (
-      <div key={"track_" + i} className={`flex items-center gap-4 border-b border-b-main/10 mx-2 py-2`}>
-        <p className="w-6 -ml-12 text-main/70">{item.time}</p>
-        <div className="relative h-16 w-16 z-0">
-          <Image
-            src={item.icon}
-            alt={`${item.title}'s photo`}
-            fill
-            sizes={"(max-width: 10000px) 64px"}
-            className="rounded"
-          ></Image>
+      <div
+        key={"track_" + i}
+        className={`mx-2 flex items-center gap-4 border-b border-b-main/10 py-2`}
+      >
+        <p className="-ml-12 w-6 text-main/70">{item.time}</p>
+        <div className="relative z-0 h-16 w-16">
+          <a href={item.link} target="_blank">
+            <span>{item.title}'s photo</span>
+
+            <Image
+              src={item.icon}
+              alt={`${item.title}'s photo`}
+              fill
+              sizes={"(max-width: 10000px) 64px"}
+              className="rounded"
+            ></Image>
+          </a>
         </div>
         <div>
-          <h3 className="font-semibold text-xl">{item.title}</h3>
+          <h3 className="text-xl font-semibold">{item.title}</h3>
           <h4 className="text-lg">{item.artist}</h4>
         </div>
         <a
           href={item.link}
           target="_blank"
-          className="ml-auto bg-highlight/25 rounded py-1 px-3 hover:bg-highlight/35 transition-colors duration-75"
+          className="ml-auto rounded bg-highlight/25 px-3 py-1 transition-colors duration-75 hover:bg-highlight/35"
         >
           Listen on Spotify
         </a>

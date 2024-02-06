@@ -26,24 +26,29 @@ const CurrentlyPlaying = async ({ code }) => {
     return (
       <section className="my-20 animate-fade-in">
         <Link href="/recent">
-          <h1 className="text-3xl font-bold my-4 ml-2">Currently Playing</h1>
+          <h1 className="my-4 ml-2 text-3xl font-bold">Currently Playing</h1>
         </Link>
         <div className="flex items-center gap-4">
-          <div className="relative h-32 w-32 z-0">
-            <Image
-              src={currentTrackData.icon}
-              alt={`${currentTrackData.title}'s photo`}
-              fill
-              className="rounded border-2 border-main/40"
-            ></Image>
+          <div className="relative z-0 h-32 w-32">
+            <a href={currentTrackData.link} target="_blank">
+              <span>{currentTrackData.title}'s photo</span>
+              <Image
+                src={currentTrackData.icon}
+                alt={`${currentTrackData.title}'s photo`}
+                fill
+                className="rounded border-2 border-main/40"
+              ></Image>
+            </a>
           </div>
           <div>
-            <h3 className="font-semibold text-2xl">{currentTrackData.title}</h3>
-            <h4 className="text-lg text-main/70 mb-4">{currentTrackData.artist}</h4>
+            <h3 className="text-2xl font-semibold">{currentTrackData.title}</h3>
+            <h4 className="mb-4 text-lg text-main/70">
+              {currentTrackData.artist}
+            </h4>
             <a
               href={currentTrackData.link}
               target="_blank"
-              className="bg-highlight/20 rounded py-1 px-3 hover:bg-highlight/25 transition-colors duration-75"
+              className="rounded bg-highlight/20 px-3 py-1 transition-colors duration-75 hover:bg-highlight/25"
             >
               View on Spotify
             </a>

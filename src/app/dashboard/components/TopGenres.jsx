@@ -11,11 +11,14 @@ const TopGenres = ({ code }) => {
   useEffect(() => {
     if (items[timeFrame] == null) {
       let genreCounts = {}
-      fetch(`https://api.spotify.com/v1/me/top/artists?limit=50&time_range=${timeFrame}`, {
-        headers: {
-          Authorization: `Bearer ${code}`,
+      fetch(
+        `https://api.spotify.com/v1/me/top/artists?limit=50&time_range=${timeFrame}`,
+        {
+          headers: {
+            Authorization: `Bearer ${code}`,
+          },
         },
-      })
+      )
         .then((res) => {
           if (res.ok) {
             return res.json()
@@ -31,7 +34,9 @@ const TopGenres = ({ code }) => {
               }
             })
           })
-          const sortedGenres = Object.keys(genreCounts).sort((a, b) => genreCounts[b] - genreCounts[a])
+          const sortedGenres = Object.keys(genreCounts).sort(
+            (a, b) => genreCounts[b] - genreCounts[a],
+          )
           const topGenres = sortedGenres.slice(0, 20)
           setItems((prev) => {
             return {
@@ -58,7 +63,7 @@ const TopGenres = ({ code }) => {
           key={"skel_tracks_" + i}
           className={`flex items-center gap-4 ${!(i == 4) && "border-b border-b-main/5"} py-2`}
         >
-          <div className="w-40 h-6 rounded-full bg-main/10 mb-2 ml-4"></div>
+          <div className="mb-2 ml-4 h-6 w-40 rounded-full bg-main/10"></div>
         </div>
       )
     })
@@ -73,8 +78,10 @@ const TopGenres = ({ code }) => {
         >
           <div>
             <span className="flex items-center">
-              <h3 className="font-semibold text-lg w-8 ml-4 text-main/60">{i + 1}.</h3>
-              <h3 className="font-semibold text-lg ml-2">{genre}</h3>
+              <h3 className="ml-4 w-8 text-lg font-semibold text-main/60">
+                {i + 1}.
+              </h3>
+              <h3 className="ml-2 text-lg font-semibold">{genre}</h3>
             </span>
           </div>
         </div>
@@ -84,14 +91,16 @@ const TopGenres = ({ code }) => {
 
   return (
     <section className="my-20">
-      <h1 className="text-3xl font-bold mt-4 ml-2">Top genres</h1>
-      <span className="flex items-center gap-8 my-4 ml-2">
+      <h1 className="ml-2 mt-4 text-3xl font-bold">Top genres</h1>
+      <span className="my-4 ml-2 flex items-center gap-8">
         <button
           onClick={() => {
             setTimeFrame("short_term")
           }}
           className={
-            timeFrame == "short_term" ? className.timeFrameButtonActiveStyle : className.timeFrameButtonInactiveStyle
+            timeFrame == "short_term"
+              ? className.timeFrameButtonActiveStyle
+              : className.timeFrameButtonInactiveStyle
           }
         >
           4 Weeks
@@ -101,7 +110,9 @@ const TopGenres = ({ code }) => {
             setTimeFrame("medium_term")
           }}
           className={
-            timeFrame == "medium_term" ? className.timeFrameButtonActiveStyle : className.timeFrameButtonInactiveStyle
+            timeFrame == "medium_term"
+              ? className.timeFrameButtonActiveStyle
+              : className.timeFrameButtonInactiveStyle
           }
         >
           6 Months
@@ -111,13 +122,17 @@ const TopGenres = ({ code }) => {
             setTimeFrame("long_term")
           }}
           className={
-            timeFrame == "long_term" ? className.timeFrameButtonActiveStyle : className.timeFrameButtonInactiveStyle
+            timeFrame == "long_term"
+              ? className.timeFrameButtonActiveStyle
+              : className.timeFrameButtonInactiveStyle
           }
         >
           All time
         </button>
       </span>
-      <div className="bg-main/10 flex flex-col border-y border-y-main/5 rounded">{innerJsx}</div>
+      <div className="flex flex-col rounded border-y border-y-main/5 bg-main/10">
+        {innerJsx}
+      </div>
     </section>
   )
 }

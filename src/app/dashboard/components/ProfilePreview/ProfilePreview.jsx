@@ -12,7 +12,7 @@ const ProfilePreview = async ({ code }) => {
     data = await res.json()
   }
   return (
-    <section className="flex items-center gap-4 px-12 animate-fade-in">
+    <section className="flex animate-fade-in items-center gap-4 px-12">
       <Image
         priority={true}
         alt={`Spotify profile picture for ${data.display_name}`}
@@ -22,19 +22,20 @@ const ProfilePreview = async ({ code }) => {
         className="rounded-full border-2 border-main/30"
       ></Image>
       <div>
-        <h2 className="font-bold text-5xl mb-2">{data.display_name}</h2>
+        <h2 className="mb-2 text-5xl font-bold">{data.display_name}</h2>
         <span className="flex items-center gap-8">
           <h3 className="text-xl">
-            <span className="text-highlight/80">{data.followers.total}</span> followers
+            <span className="text-highlight/80">{data.followers.total}</span>{" "}
+            followers
           </h3>
           <a
-            className="text-xl transition-colors group flex items-center gap-1"
+            className="group flex items-center gap-1 text-xl transition-colors"
             target="_blank"
             href={data.external_urls.spotify}
           >
             View full profile
             <svg
-              className="w-6 h-6 group-hover:translate-x-2 translate-y-[1px] transition-transform"
+              className="h-6 w-6 translate-y-[1px] transition-transform group-hover:translate-x-2"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
