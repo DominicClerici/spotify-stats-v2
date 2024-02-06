@@ -32,7 +32,7 @@ export const POST = async (req) => {
     )
   }
   if (json.error) {
-    return new NextResponse(JSON.stringify({ error: 41 }), {
+    return new NextResponse(JSON.stringify({ error: 41, json: json }), {
       status: 400,
     })
   } else {
