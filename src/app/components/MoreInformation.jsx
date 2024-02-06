@@ -34,7 +34,7 @@ const MoreInformation = () => {
         <p className={className.paragraph}>
           Your top artists, determined by listening time, highlight your
           favorite musicians. You can adjust your preferences by exploring
-          Spotify's recommended new artists and albums.
+          Spotify&apos;s recommended new artists and albums.
         </p>
 
         <h3 className={className.header}>Calculating Top Artists</h3>
@@ -46,8 +46,8 @@ const MoreInformation = () => {
 
         <h3 className={className.header}>Exploring New Artists and Albums</h3>
         <p className={className.paragraph}>
-          Use Spotify's "Related Artists" to find new music similar to your top
-          artists, expanding your musical range.
+          Use Spotify&apos;s &apos;Related Artists&apos; to find new music
+          similar to your top artists, expanding your musical range.
         </p>
 
         <h3 className={className.header}>
