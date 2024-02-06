@@ -31,7 +31,9 @@ const CurrentlyPlaying = async ({ code }) => {
         <div className="flex items-center gap-4">
           <div className="relative z-0 h-32 w-32">
             <a href={currentTrackData.link} target="_blank">
-              <span>{currentTrackData.title}&apos;s photo</span>
+              <span className="absolute opacity-0">
+                {currentTrackData.title}&apos;s photo
+              </span>
               <Image
                 src={currentTrackData.icon}
                 alt={`${currentTrackData.title}'s photo`}

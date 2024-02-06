@@ -32,7 +32,9 @@ const ListDisplay = ({ items, type, externalUrl }) => {
           <p className="-ml-10 w-6 text-main/70">{i + 1}.</p>
           <div className="relative z-0 h-16 w-16">
             <a href={item.link} target="_blank">
-              <span>{item.title}&apos;s photo</span>
+              <span className="absolute opacity-0">
+                {item.title}&apos;s photo
+              </span>
               <Image
                 src={item.icon}
                 alt={`${type == "tracks" ? item.title : item.name}'s photo`}
