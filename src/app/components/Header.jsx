@@ -5,11 +5,7 @@ import { Logout } from "./Logout"
 import Logo from "./Logo"
 import Login from "./Login"
 
-const scope =
-  "user-read-private user-read-email user-top-read user-read-playback-state user-read-recently-played"
-
 const Header = () => {
-  const accessToken = cookies().get("access_token")
   const refreshToken = cookies().get("refresh_token")
 
   const className = {

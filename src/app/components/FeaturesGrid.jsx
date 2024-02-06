@@ -107,39 +107,6 @@ const FeaturesGrid = () => {
           </div>
         </div>
       </div>
-      {/* <div className="relative -top-16 mx-auto grid max-w-[1200px] grid-cols-3 gap-8">
-          <div className={className.panel}>
-            <h2 className={className.header}>How it works.</h2>
-            <p className={className.body}>
-              Spotify Stats uses the Spotify Web API to retrieve your listening
-              history and generate statistics based on that. This allows you to
-              see your most listened to tracks, favorite artists, and most loved
-              genres.{" "}
-              <span>
-                The data is stored in your browser and is never sent to any
-                server.
-              </span>
-            </p>
-          </div>
-          <div className={className.panel}>
-            <h2 className={className.header}>Wrapped came early!</h2>
-            <p className={className.body}>
-              Wrapped came early this year! Spotify Stats is a great way to see
-              your listening statistics before the official Wrapped is released.
-              See your top tracks, artists, and genres at any time of the year.
-            </p>
-          </div>
-          <div className={className.panel}>
-            <h2 className={className.header}>Share your stats.</h2>
-            <p className={className.body}>
-              Spotify stats allows you to share your stats with your friends.
-              You can create a playlist of your top tracks, or create a poster
-              image of your top artists and songs. Share your stats with your
-              friends, or don&apos;t, you never know what songs are going to be
-              at the top.
-            </p>
-          </div>
-        </div> */}
     </section>
   )
 }
