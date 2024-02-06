@@ -1,0 +1,9 @@
+.hamburgerSvg path {
+  transition: 0.2s;
+}
+.hamburgerSvg.open .firstPath {
+  d: path("M2 0 L28 22");
+}
+.hamburgerSvg.open .secondPath {
+  d: path("M2 22 L28 0");
+}

@@ -4,20 +4,26 @@ import React from "react"
 import { Logout } from "./Logout"
 import Logo from "./Logo"
 import Login from "./Login"
+import MobileHamburgerMenu from "./MobileHamburgerMenu"
 
 const Header = () => {
   const refreshToken = cookies().get("refresh_token")
 
   const className = {
-    navStyle: "rounded px-4 py-1 text-lg hover:bg-main/10 transition-colors",
+    navStyle:
+      "rounded sm:px-4 font-light py-1 md:text-md lg:text-lg hover:bg-main/10 transition-colors",
   }
 
   let innerJsx
-  if (refreshToken) {
+
+  if (true) {
     innerJsx = (
       <>
+        <div className="ml-auto md:hidden">
+          <MobileHamburgerMenu />
+        </div>
         <nav>
-          <ul className="flex items-center gap-2">
+          <ul className="hidden items-center md:flex md:gap-1 lg:gap-2">
             <Link href="dashboard" className={className.navStyle}>
               <li>Dashboard</li>
             </Link>
@@ -32,7 +38,9 @@ const Header = () => {
             </Link>
           </ul>
         </nav>
-        <Logout />
+        <div className="mmd:hidden ml-auto md:visible">
+          <Logout />
+        </div>
       </>
     )
   } else {
@@ -45,8 +53,8 @@ const Header = () => {
 
   return (
     <header className="fixed left-0 top-0 z-30 w-full bg-background/70 backdrop-blur-lg">
-      <div className="mx-auto flex max-w-screen-xl items-center px-12 py-2">
-        <Link href="/" className="group mr-8 p-2">
+      <div className="mx-auto flex max-w-screen-xl items-center px-4 py-2 sm:px-12">
+        <Link href="/" className="group p-2 sm:mr-8">
           <span className="absolute opacity-0">home</span>
           <Logo />
         </Link>
