@@ -45,7 +45,7 @@ const FullList = async ({ code }) => {
         <p className="-ml-12 w-6 text-main/70">{item.time}</p>
         <div className="relative z-0 h-16 w-16">
           <a href={item.link} target="_blank">
-            <span>{item.title}'s photo</span>
+            <span>{item.title}&apos;s photo</span>
 
             <Image
               src={item.icon}
