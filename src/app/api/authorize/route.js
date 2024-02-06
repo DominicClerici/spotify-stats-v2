@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server"
 import { cookies } from "next/headers"
 
-const url = "http://localhost:3000/callback"
+const url = "https://spotifystats.dominicclerici.com/callback"
 
 export const POST = async (req) => {
   const data = await req.json()
@@ -28,7 +28,7 @@ export const POST = async (req) => {
       JSON.stringify({ error: "Error parsing response" }),
       {
         status: 500,
-      }
+      },
     )
   }
   if (json.error) {
@@ -42,7 +42,7 @@ export const POST = async (req) => {
         json.refresh_token,
         cookies().set("refresh_token", json.refresh_token, {
           maxAge: 60 * 60 * 24 * 365,
-        })
+        }),
       )
       cookies().set("access_token", json.access_token, {
         maxAge: json.expires_in,
@@ -53,7 +53,7 @@ export const POST = async (req) => {
         JSON.stringify({ error: "Error setting cookies" }),
         {
           status: 500,
-        }
+        },
       )
     }
     if (cookies().get("refresh_token") && cookies().get("access_token")) {
