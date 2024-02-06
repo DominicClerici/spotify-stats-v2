@@ -1,6 +1,8 @@
+const url = "https://spotifystats.dominicclerici.com"
+
 const authorize = (code) => {
   return new Promise((res, rej) => {
-    fetch("http://localhost:3000/api/authorize", {
+    fetch(`${url}/api/authorize`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

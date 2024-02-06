@@ -1,28 +1,30 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import ListDisplay from "./ListDisplay";
-import Link from "next/link";
+"use client"
+import React, { useEffect, useState } from "react"
+import ListDisplay from "./ListDisplay"
+import Link from "next/link"
+
+const url = "https://spotifystats.dominicclerici.com"
 
 const SAMPLE_TRACK_OBJECT = {
   title: "The Less I Know The Better",
   artist: "Tame Impala",
   icon: "https://i.scdn.co/image/ab67616d0000b273e4b4b5b6b5b6b5b6b5b6b5b6",
   link: "https://open.spotify.com/track/7Fw3lyu0L4bxpGHgTu0Vut?si=3f1e0f6f7a1d4b6a",
-};
+}
 
 const SAMPLE_ARTIST_OBJECT = {
   name: "The Beatles",
   icon: "https://i.scdn.co/image/ab6761610000e5ebc5b6b8b9b8b9b8b9b8b9b8b9",
   link: "https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2",
-};
+}
 
 const ListPreview = ({ code, type }) => {
-  const [timeFrame, setTimeFrame] = useState("short_term");
+  const [timeFrame, setTimeFrame] = useState("short_term")
   const [items, setItems] = useState({
     short_term: null,
     medium_term: null,
     long_term: null,
-  });
+  })
   useEffect(() => {
     if (items[timeFrame] == null) {
       fetch(
@@ -35,7 +37,7 @@ const ListPreview = ({ code, type }) => {
       )
         .then((res) => {
           if (res.ok) {
-            return res.json();
+            return res.json()
           }
         })
         .then((data) => {
@@ -46,43 +48,37 @@ const ListPreview = ({ code, type }) => {
                   name: item.name,
                   icon: item.images[1].url,
                   link: item.external_urls.spotify,
-                };
+                }
               } else {
                 return {
                   title: item.name,
                   artist: item.artists.map((artist) => artist.name).join(", "),
                   icon: item.album.images[1].url,
                   link: item.external_urls.spotify,
-                };
+                }
               }
-            });
+            })
             setItems((prev) => {
               return {
                 ...prev,
                 [timeFrame]: newItems,
-              };
-            });
+              }
+            })
           }
-        });
+        })
     }
-  }, [timeFrame]);
+  }, [timeFrame])
 
   const className = {
     timeFrameButtonActiveStyle:
       "text-lg rounded-lg px-4 py-1 bg-highlight/20 hover:bg-highlight/25 text-main transition-colors duration-75",
     timeFrameButtonInactiveStyle:
       "text-lg rounded-lg px-4 py-1 bg-main/10 hover:bg-main/15 text-main transition-colors duration-75",
-  };
+  }
 
   return (
     <section className="my-20 animate-fade-in">
-      <Link
-        href={
-          type == "tracks"
-            ? "http://localhost:3000/tracks"
-            : "http://localhost:3000/artists"
-        }
-      >
+      <Link href={type == "tracks" ? `${url}/tracks` : `${url}/artists`}>
         <h1 className="ml-2 mt-4 text-3xl font-bold">
           Top {type == "tracks" ? "tracks" : "artists"}
         </h1>
@@ -90,7 +86,7 @@ const ListPreview = ({ code, type }) => {
       <span className="my-4 ml-2 flex items-center gap-8">
         <button
           onClick={() => {
-            setTimeFrame("short_term");
+            setTimeFrame("short_term")
           }}
           className={
             timeFrame == "short_term"
@@ -102,7 +98,7 @@ const ListPreview = ({ code, type }) => {
         </button>
         <button
           onClick={() => {
-            setTimeFrame("medium_term");
+            setTimeFrame("medium_term")
           }}
           className={
             timeFrame == "medium_term"
@@ -114,7 +110,7 @@ const ListPreview = ({ code, type }) => {
         </button>
         <button
           onClick={() => {
-            setTimeFrame("long_term");
+            setTimeFrame("long_term")
           }}
           className={
             timeFrame == "long_term"
@@ -127,15 +123,11 @@ const ListPreview = ({ code, type }) => {
       </span>
       <ListDisplay
         items={items[timeFrame]}
-        externalUrl={
-          type == "tracks"
-            ? "http://localhost:3000/tracks"
-            : "http://localhost:3000/artists"
-        }
+        externalUrl={type == "tracks" ? `${url}/tracks` : `${url}/artists`}
         type={type}
       />
     </section>
-  );
-};
+  )
+}
 
-export default ListPreview;
+export default ListPreview

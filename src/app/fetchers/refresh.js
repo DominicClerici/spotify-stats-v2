@@ -1,6 +1,8 @@
+const url = "https://spotifystats.dominicclerici.com"
+
 const refresh = (token) => {
   return new Promise((res, rej) => {
-    fetch("http://localhost:3000/api/refresh", {
+    fetch(`${url}/api/refresh`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
