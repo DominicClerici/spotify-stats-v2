@@ -15,10 +15,13 @@ const page = async () => {
   }
 
   return (
-    <main className="max-w-screen-md min-h-screen mx-auto my-24 animate-fade-in">
-      <Link href="/dashboard" className="flex items-center gap-1 group text-lg mb-8">
+    <main className="mx-auto mb-4 mt-24 min-h-screen max-w-screen-md animate-fade-in px-4 sm:px-8">
+      <Link
+        href="/dashboard"
+        className="group mb-8 flex items-center gap-1 text-lg"
+      >
         <svg
-          className="translate-y-[1px] group-hover:-translate-x-1 transition-transform h-6 w-6"
+          className="h-6 w-6 translate-y-[1px] transition-transform group-hover:-translate-x-1"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -34,7 +37,9 @@ const page = async () => {
         </svg>
         Dashboard
       </Link>
-      <h1 className="text-4xl font-semibold mb-8">Recently played</h1>
+      <h1 className="mb-8 text-3xl font-semibold sm:text-4xl">
+        Recently played
+      </h1>
       <FullList code={accessToken.value} />
     </main>
   )

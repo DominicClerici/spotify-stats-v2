@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server"
 import { cookies } from "next/headers"
 
-const url = "https://spotifystats.dominicclerici.com/callback"
+// const url = "https://spotifystats.dominicclerici.com/callback"
+const url = "http://localhost:3000/callback"
 
 export const POST = async (req) => {
   const data = await req.json()

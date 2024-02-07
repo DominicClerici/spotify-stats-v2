@@ -26,7 +26,7 @@ export const POST = async (req) => {
       JSON.stringify({ error: "Error parsing response" }),
       {
         status: 500,
-      }
+      },
     )
   }
   if (json.error) {
@@ -46,7 +46,7 @@ export const POST = async (req) => {
         JSON.stringify({ error: "Error setting cookies" }),
         {
           status: 500,
-        }
+        },
       )
     }
     if (cookies().get("access_token") && cookies().get("refresh_token")) {

@@ -78,10 +78,12 @@ const TopGenres = ({ code }) => {
         >
           <div>
             <span className="flex items-center">
-              <h3 className="ml-4 w-8 text-lg font-semibold text-main/60">
+              <h3 className="ml-4 hidden w-8 text-lg font-semibold text-main/60 md:inline">
                 {i + 1}.
               </h3>
-              <h3 className="ml-2 text-lg font-semibold">{genre}</h3>
+              <h3 className="text-md ml-2 line-clamp-1 font-semibold sm:text-lg">
+                {genre}
+              </h3>
             </span>
           </div>
         </div>
@@ -90,9 +92,9 @@ const TopGenres = ({ code }) => {
   }
 
   return (
-    <section className="my-20">
+    <section className="my-10 sm:my-20">
       <h1 className="ml-2 mt-4 text-3xl font-bold">Top genres</h1>
-      <span className="my-4 ml-2 flex items-center gap-8">
+      <span className="my-2 flex items-center gap-4 sm:my-4 sm:ml-2 sm:gap-8">
         <button
           onClick={() => {
             setTimeFrame("short_term")

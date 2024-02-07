@@ -4,11 +4,14 @@ import Link from "next/link"
 import timeAgo from "@/app/timeAgo"
 
 const RecentlyPlayed = async ({ code }) => {
-  const res = await fetch("https://api.spotify.com/v1/me/player/recently-played?limit=5", {
-    headers: {
-      Authorization: `Bearer ${code}`,
+  const res = await fetch(
+    "https://api.spotify.com/v1/me/player/recently-played?limit=5",
+    {
+      headers: {
+        Authorization: `Bearer ${code}`,
+      },
     },
-  })
+  )
   let data
   let recentTrackData
   if (res.status == 200) {
@@ -27,11 +30,15 @@ const RecentlyPlayed = async ({ code }) => {
   }
 
   return (
-    <section className="my-20 animate-fade-in">
+    <section className="my-10 animate-fade-in sm:my-20">
       <Link href="/recents">
-        <h1 className="text-3xl font-bold my-4 ml-2">Recently played</h1>
+        <h1 className="my-4 ml-2 text-3xl font-bold">Recently played</h1>
       </Link>
-      <ListDisplay items={recentTrackData} type="tracks" externalUrl={"/recents"} />
+      <ListDisplay
+        items={recentTrackData}
+        type="tracks"
+        externalUrl={"/recents"}
+      />
     </section>
   )
 }

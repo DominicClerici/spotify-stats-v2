@@ -24,12 +24,14 @@ const CurrentlyPlaying = async ({ code }) => {
       link: data.item.external_urls.spotify,
     }
     return (
-      <section className="my-20 animate-fade-in">
+      <section className="my-10 animate-fade-in sm:my-20">
         <Link href="/recent">
-          <h1 className="my-4 ml-2 text-3xl font-bold">Currently Playing</h1>
+          <h1 className="my-2 ml-2 text-2xl font-bold sm:my-4 sm:text-3xl">
+            Currently Playing
+          </h1>
         </Link>
         <div className="flex items-center gap-4">
-          <div className="relative z-0 h-32 w-32">
+          <div className="relative z-0 h-24 w-24 sm:h-32 sm:w-32">
             <a href={currentTrackData.link} target="_blank">
               <span className="absolute opacity-0">
                 {currentTrackData.title}&apos;s photo
@@ -43,8 +45,10 @@ const CurrentlyPlaying = async ({ code }) => {
             </a>
           </div>
           <div>
-            <h3 className="text-2xl font-semibold">{currentTrackData.title}</h3>
-            <h4 className="mb-4 text-lg text-main/70">
+            <h3 className="line-clamp-1 text-2xl font-semibold">
+              {currentTrackData.title}
+            </h3>
+            <h4 className="mb-4 line-clamp-1 text-lg text-main/70">
               {currentTrackData.artist}
             </h4>
             <a

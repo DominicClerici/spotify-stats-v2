@@ -19,7 +19,7 @@ const page = async () => {
   }
 
   return (
-    <section className="max-w-screen-md min-h-screen mx-auto my-24">
+    <section className="mx-auto my-24 min-h-screen max-w-screen-md px-4 sm:px-8">
       <ProfilePreview code={accessToken.value} />
       <CurrentlyPlaying code={accessToken.value} />
       {/* <TrackPreview code={accessToken.value} /> */}

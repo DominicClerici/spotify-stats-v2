@@ -1,5 +1,5 @@
-const url = "https://spotifystats.dominicclerici.com"
-
+// const url = "https://spotifystats.dominicclerici.com"
+const url = "http://localhost:3000"
 const refresh = (token) => {
   return new Promise((res, rej) => {
     fetch(`${url}/api/refresh`, {

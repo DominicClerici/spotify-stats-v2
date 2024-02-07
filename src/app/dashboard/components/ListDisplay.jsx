@@ -29,8 +29,8 @@ const ListDisplay = ({ items, type, externalUrl }) => {
           key={"track_" + i}
           className={`flex items-center gap-4 ${!(i == items.length - 1) && "border-b border-b-main/5"} mx-2 py-2`}
         >
-          <p className="-ml-10 w-6 text-main/70">{i + 1}.</p>
-          <div className="relative z-0 h-16 w-16">
+          <p className="-ml-10 hidden w-6 text-main/70 md:inline">{i + 1}.</p>
+          <div className="relative z-0 h-12 min-h-12 w-12 min-w-12 sm:h-16 sm:w-16">
             <a href={item.link} target="_blank">
               <span className="absolute opacity-0">
                 {item.title}&apos;s photo
@@ -47,19 +47,28 @@ const ListDisplay = ({ items, type, externalUrl }) => {
           <div>
             {type == "tracks" ? (
               <>
-                <h3 className="text-xl font-semibold">{item.title}</h3>
-                <h4 className="text-lg text-main/70">{item.artist}</h4>
+                <h3 className="text-md line-clamp-1 font-semibold sm:text-xl">
+                  {item.title}
+                </h3>
+                <h4 className="text-md line-clamp-1 text-main/70 sm:text-lg">
+                  {item.artist}
+                </h4>
               </>
             ) : (
-              <h3 className="text-xl font-semibold">{item.name}</h3>
+              <h3 className="text-md font-semibold sm:text-xl">{item.name}</h3>
             )}
           </div>
           <a
             href={item.link}
             target="_blank"
-            className="ml-auto mr-2 rounded bg-highlight/15 px-3 py-1 transition-colors duration-75 hover:bg-highlight/20"
+            className="invisible absolute ml-auto mr-2 rounded bg-highlight/15 p-2 transition-colors duration-75 hover:bg-highlight/20 sm:visible sm:relative"
           >
-            {type == "tracks" ? "Listen" : "View"} on Spotify
+            <Image
+              src={"/Spotify_Icon_RGB_White.png"}
+              width={25}
+              height={25}
+              alt="spotify logo"
+            ></Image>
           </a>
         </div>
       )

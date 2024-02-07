@@ -1,6 +1,7 @@
 import React from "react"
 
-const url = "https://spotifystats.dominicclerici.com/callback"
+// const url = "https://spotifystats.dominicclerici.com/callback"
+const url = "http://localhost:3000/callback"
 
 const scope =
   "user-read-private user-read-email user-top-read user-read-playback-state user-read-recently-played"

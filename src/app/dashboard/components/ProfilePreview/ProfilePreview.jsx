@@ -12,28 +12,31 @@ const ProfilePreview = async ({ code }) => {
     data = await res.json()
   }
   return (
-    <section className="flex animate-fade-in items-center gap-4 px-12">
-      <Image
-        priority={true}
-        alt={`Spotify profile picture for ${data.display_name}`}
-        src={data.images[1].url}
-        height={150}
-        width={150}
-        className="rounded-full border-2 border-main/30"
-      ></Image>
+    <section className="flex animate-fade-in items-center gap-4 px-4 sm:px-12">
+      <div className="relative h-24 w-24 sm:h-36 sm:w-36">
+        <Image
+          priority={true}
+          alt={`Spotify profile picture for ${data.display_name}`}
+          src={data.images[1].url}
+          fill
+          className="rounded-full border-2 border-main/30"
+        ></Image>
+      </div>
       <div>
-        <h2 className="mb-2 text-5xl font-bold">{data.display_name}</h2>
-        <span className="flex items-center gap-8">
-          <h3 className="text-xl">
+        <h2 className="mb-2 text-xl font-bold sm:text-4xl md:text-5xl">
+          {data.display_name}
+        </h2>
+        <span className="flex flex-col sm:flex-row sm:items-center sm:gap-8">
+          <h3 className="text-lg sm:text-xl">
             <span className="text-highlight/80">{data.followers.total}</span>{" "}
             followers
           </h3>
           <a
-            className="group flex items-center gap-1 text-xl transition-colors"
+            className="group flex items-center gap-1 text-lg transition-colors sm:text-xl"
             target="_blank"
             href={data.external_urls.spotify}
           >
-            View full profile
+            View profile
             <svg
               className="h-6 w-6 translate-y-[1px] transition-transform group-hover:translate-x-2"
               aria-hidden="true"

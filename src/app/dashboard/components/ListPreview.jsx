@@ -3,20 +3,8 @@ import React, { useEffect, useState } from "react"
 import ListDisplay from "./ListDisplay"
 import Link from "next/link"
 
-const url = "https://spotifystats.dominicclerici.com"
-
-const SAMPLE_TRACK_OBJECT = {
-  title: "The Less I Know The Better",
-  artist: "Tame Impala",
-  icon: "https://i.scdn.co/image/ab67616d0000b273e4b4b5b6b5b6b5b6b5b6b5b6",
-  link: "https://open.spotify.com/track/7Fw3lyu0L4bxpGHgTu0Vut?si=3f1e0f6f7a1d4b6a",
-}
-
-const SAMPLE_ARTIST_OBJECT = {
-  name: "The Beatles",
-  icon: "https://i.scdn.co/image/ab6761610000e5ebc5b6b8b9b8b9b8b9b8b9b8b9",
-  link: "https://open.spotify.com/artist/3WrFJ7ztbogyGnTHbHJFl2",
-}
+// const url = "https://spotifystats.dominicclerici.com"
+const url = "http://localhost:3000"
 
 const ListPreview = ({ code, type }) => {
   const [timeFrame, setTimeFrame] = useState("short_term")
@@ -77,13 +65,13 @@ const ListPreview = ({ code, type }) => {
   }
 
   return (
-    <section className="my-20 animate-fade-in">
+    <section className="my-10 animate-fade-in sm:my-20">
       <Link href={type == "tracks" ? `${url}/tracks` : `${url}/artists`}>
         <h1 className="ml-2 mt-4 text-3xl font-bold">
           Top {type == "tracks" ? "tracks" : "artists"}
         </h1>
       </Link>
-      <span className="my-4 ml-2 flex items-center gap-8">
+      <span className="my-2 flex items-center gap-4 sm:my-4 sm:ml-2 sm:gap-8">
         <button
           onClick={() => {
             setTimeFrame("short_term")

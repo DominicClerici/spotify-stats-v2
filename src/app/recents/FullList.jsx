@@ -42,32 +42,37 @@ const FullList = async ({ code }) => {
         key={"track_" + i}
         className={`mx-2 flex items-center gap-4 border-b border-b-main/10 py-2`}
       >
-        <p className="-ml-12 w-6 text-main/70">{item.time}</p>
-        <div className="relative z-0 h-16 w-16">
+        <p className="-ml-12 hidden w-6 text-main/70 md:inline">{item.time}</p>
+        <div className="relative z-0 min-h-12 min-w-12 sm:h-16 sm:w-16">
           <a href={item.link} target="_blank">
             <span className="absolute opacity-0">
               {item.title}&apos;s photo
             </span>
-
             <Image
               src={item.icon}
               alt={`${item.title}'s photo`}
               fill
-              sizes={"(max-width: 10000px) 64px"}
               className="rounded"
             ></Image>
           </a>
         </div>
         <div>
-          <h3 className="text-xl font-semibold">{item.title}</h3>
-          <h4 className="text-lg">{item.artist}</h4>
+          <h3 className="line-clamp-1 text-lg font-semibold sm:text-xl">
+            {item.title}
+          </h3>
+          <h4 className="text-md line-clamp-1 sm:text-lg">{item.artist}</h4>
         </div>
         <a
           href={item.link}
           target="_blank"
-          className="ml-auto rounded bg-highlight/25 px-3 py-1 transition-colors duration-75 hover:bg-highlight/35"
+          className="invisible absolute ml-auto mr-2 rounded bg-highlight/15 p-2 transition-colors duration-75 hover:bg-highlight/20 sm:visible sm:relative"
         >
-          Listen on Spotify
+          <Image
+            src={"/Spotify_Icon_RGB_White.png"}
+            width={25}
+            height={25}
+            alt="spotify logo"
+          ></Image>
         </a>
       </div>
     )
