@@ -1,5 +1,5 @@
-// const url = "https://spotifystats.dominicclerici.com"
-const url = "http://localhost:3000"
+const url = "https://spotifystats.dominicclerici.com"
+// const url = "http://localhost:3000"
 const authorize = (code) => {
   return new Promise((res, rej) => {
     fetch(`${url}/api/authorize`, {

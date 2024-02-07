@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react"
 import ListDisplay from "./ListDisplay"
 import Link from "next/link"
 
-// const url = "https://spotifystats.dominicclerici.com"
-const url = "http://localhost:3000"
+const url = "https://spotifystats.dominicclerici.com"
+// const url = "http://localhost:3000"
 
 const ListPreview = ({ code, type }) => {
   const [timeFrame, setTimeFrame] = useState("short_term")
