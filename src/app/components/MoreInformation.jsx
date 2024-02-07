@@ -10,7 +10,7 @@ const className = {
 const MoreInformation = () => {
   return (
     <section className="w-full">
-      <div className="mx-auto flex max-w-[1000px] flex-col gap-2 px-2 pt-24 sm:px-4 md:px-8">
+      <div className="mx-auto flex max-w-[1000px] flex-col gap-2 px-4 pt-24 md:px-8">
         <h3 className={className.header}>Viewing Spotify Stats</h3>
         <p className={className.paragraph}>
           Access your Spotify account to view your top artists, songs, and

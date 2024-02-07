@@ -1,5 +1,5 @@
 "use client"
-import "./hamburgerStyle.css"
+// import "./hamburgerStyle.css"
 import Link from "next/link"
 import React, { useState } from "react"
 
@@ -17,31 +17,32 @@ const MobileHamburgerMenu = () => {
         xmlns="http://www.w3.org/2000/svg"
         className={`${isOpen ? "open" : ""} hamburgerSvg relative z-50 h-8 w-10 cursor-pointer transition-colors duration-200`}
         fill={isOpen ? "white" : "gray"}
-        viewBox="0 0 30 22"
+        viewBox="0 0 30 30"
       >
         <path
-          className="firstPath"
-          d="M2 0 L28 0"
+          className="transition-all duration-300"
+          d={`M1.5 ${isOpen ? "28.5" : "1.5"} L28.5 1.5`}
           strokeWidth="3"
-          stroke="white"
+          stroke={isOpen ? "white" : "darkgray"}
           strokeLinecap="round"
           strokeLinejoin="round"
           radius="1"
         ></path>
         <path
-          d="M2 11 L28 11"
+          className="transition-all duration-300"
+          d="M1.5 15 L28.5 15"
           strokeWidth="3"
-          stroke="white"
+          stroke={isOpen ? "white" : "darkgray"}
           opacity={isOpen ? "0" : "1"}
           strokeLinecap="round"
           strokeLinejoin="round"
           radius="1"
         ></path>
         <path
-          className="secondPath"
-          d="M2 22 L28 22"
+          className="transition-all duration-300"
+          d={`M1.5 ${isOpen ? "1.5" : "28.5"} L28.5 28.5`}
           strokeWidth="3"
-          stroke="white"
+          stroke={isOpen ? "white" : "darkgray"}
           strokeLinecap="round"
           strokeLinejoin="round"
           radius="1"

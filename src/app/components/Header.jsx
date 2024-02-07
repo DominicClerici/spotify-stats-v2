@@ -16,7 +16,7 @@ const Header = () => {
 
   let innerJsx
 
-  if (true) {
+  if (refreshToken) {
     innerJsx = (
       <>
         <div className="ml-auto md:hidden">
@@ -38,7 +38,7 @@ const Header = () => {
             </Link>
           </ul>
         </nav>
-        <div className="mmd:hidden ml-auto md:visible">
+        <div className="ml-auto md:visible mmd:hidden">
           <Logout />
         </div>
       </>
